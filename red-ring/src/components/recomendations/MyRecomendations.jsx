@@ -1,5 +1,3 @@
-// src/components/MovieRecommendation.js
-
 import React, { useEffect, useState } from 'react';
 import './MyRecomendations.css';
 import Series from '../serie/Series';
@@ -7,7 +5,7 @@ import Filter from '../filters/Filter';
 import Header from '../header/Header';
 import { set } from 'firebase/database';
 
-const MyRecomendations = () => {
+export default function MyRecomendations() {
     const [series, setSeries] = useState([]);
     const [seriesFiltered, setSeriesFiltered] = useState([]);
     const [category, setCategory] = useState('all');
@@ -128,5 +126,3 @@ const MyRecomendations = () => {
 
     );
 };
-
-export default MyRecomendations;

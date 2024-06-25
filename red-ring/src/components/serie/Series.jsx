@@ -2,7 +2,7 @@ import React from 'react';
 import './Series.css';
 // import movieImage from '../movie-display.png';
 
-const Series = ({ serie }) => {
+export default function Series({ serie }) {
     return (
         <div className="movie">
             {/* <img src='/movie-display.png' alt={title} className="movie-image" /> */}
@@ -18,5 +18,3 @@ const Series = ({ serie }) => {
         </div>
     );
 };
-
-export default Series;

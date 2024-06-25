@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './NewSerie.css';
 
-const NewSerie = () => {
+export default function NewSerie() {
     const [name, setName] = useState('');
     const [service, setService] = useState('');
     const [seasons, setSeasons] = useState('');
@@ -117,5 +117,3 @@ const NewSerie = () => {
         </form>
     );
 };
-
-export default NewSerie;

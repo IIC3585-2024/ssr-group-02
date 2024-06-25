@@ -1,7 +1,7 @@
 'use server';
 
 import { NextResponse } from "next/server";
-import { projectAuth } from "@/firebase/config";
+import { projectAuth } from "../../../firebase/config";
 
 export async function POST() {
     try {

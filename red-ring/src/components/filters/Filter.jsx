@@ -2,7 +2,7 @@ import React from "react";
 import './Filter.css';
 
 
-const Filter = ({ category, setCategory, service, setService, stars, setStars }) => {
+export default function Filter({ category, setCategory, service, setService, stars, setStars }) {
     return (
         <div className="movie-filter">
             <label htmlFor="filter">Filtrar por Servicio</label>
@@ -40,5 +40,3 @@ const Filter = ({ category, setCategory, service, setService, stars, setStars })
         </div>
     );
 }
-
-export default Filter;
