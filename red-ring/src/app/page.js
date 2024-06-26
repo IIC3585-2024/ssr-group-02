@@ -6,11 +6,9 @@ import Header from '../components/header/Header.jsx'
 
 export default function Page() {
     return (
-        <Layout title="Welcome to Next.js">
-            <Header />
             <main>
+                <Header />
                 <MyRecomendations />
             </main>
-        </Layout>
     )
 }

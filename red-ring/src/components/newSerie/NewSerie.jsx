@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NewSerie.css';
+
+
+import cong from "../../firebase/configuration";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 export default function NewSerie() {
     const [name, setName] = useState('');
-    const [service, setService] = useState('');
+    const [service, setService] = useState('Netflix');
     const [seasons, setSeasons] = useState('');
     const [episodes, setEpisodes] = useState('');
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [stars, setStars] = useState('');
-    const [ratingsCount, setRatingsCount] = useState('');
+    const [category, setCategory] = useState('Action');
+    const db = getFirestore(cong);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const movieData = {
             name,
@@ -20,12 +23,12 @@ export default function NewSerie() {
             episodes,
             description,
             category,
-            stars,
-            ratingsCount,
+            reviews: [],
         };
-        console.log(movieData);
+        const docRef = collection(db, "visualmaniaDB")
+        await addDoc(docRef, movieData);
+        window.location.replace('/');
     };
-
     return (
         <form className="serie-form" onSubmit={handleSubmit}>
             <div>
@@ -61,7 +64,7 @@ export default function NewSerie() {
                 />
             </div>
             <div>
-                <label htmlFor="episodes">Número de Capítulos de cada temporada(separadas por un guion)</label>
+                <label htmlFor="episodes">Número de Capítulos de cada temporada(separadas por un guion)(5-2-8)</label>
                 <input
                     type="text"
                     id="episodes"
@@ -90,30 +93,11 @@ export default function NewSerie() {
                     <option value="Comedy">Comedia</option>
                     <option value="Fantasy">Fantasía</option>
                     <option value="Documentary">Documental</option>
+                    <option value="Other">Otro</option>
                 </select>
             </div>
-            <div>
-                <label htmlFor="stars">Estrellas</label>
-                <input
-                    type="number"
-                    id="stars"
-                    min="1"
-                    max="10"
-                    value={stars}
-                    onChange={(e) => setStars(e.target.value)}
-                />
-            </div>
-            <div>
-                <label htmlFor="ratingsCount">Cuantas calificaciones hay</label>
-                <input
-                    type="number"
-                    id="ratingsCount"
-                    min={0}
-                    value={ratingsCount}
-                    onChange={(e) => setRatingsCount(e.target.value)}
-                />
-            </div>
-            <button type="submit">Submit</button>
+
+            <button type="submit">Crear Serie</button>
         </form>
     );
 };

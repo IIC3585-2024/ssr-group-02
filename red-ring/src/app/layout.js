@@ -1,5 +1,8 @@
+'use client';
+
 import './globals.css';
 import React from 'react';
+import { AuthProvider } from './context/authContext';
 
 export default function RootLayout({ children }) {
   return (
@@ -12,7 +15,9 @@ export default function RootLayout({ children }) {
         <title>My Next.js App</title>
       </head>
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
