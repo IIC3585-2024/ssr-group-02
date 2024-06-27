@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Layout from '../layout'
 
 export default function Logout() {
   const router = useRouter();
@@ -24,7 +23,6 @@ export default function Logout() {
   }, [router]);
 
   return (
-    <Layout title="Cerrar Sesión">
-    </Layout>
+    <main />
   );
 }

@@ -2,6 +2,7 @@
 
 import './globals.css';
 import React from 'react';
+import Header from '../components/header/Header';
 import { AuthProvider } from './context/authContext';
 
 export default function RootLayout({ children }) {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AuthProvider>
+          <Header />
           {children}
         </AuthProvider>
       </body>

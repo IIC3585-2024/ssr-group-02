@@ -7,7 +7,6 @@ import Header from '../components/header/Header.jsx'
 export default function Page() {
     return (
             <main>
-                <Header />
                 <MyRecomendations />
             </main>
     )
