@@ -4,6 +4,9 @@ import Series from '../serie/Series';
 import Filter from '../filters/Filter';
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import cong from "../../firebase/configuration";
+import { projectAuth } from "../../firebase/config";
+
+
 
 
 export default function MyRecomendations() {
@@ -12,6 +15,10 @@ export default function MyRecomendations() {
     const [category, setCategory] = useState('all');
     const [service, setService] = useState('all');
     const [stars, setStars] = useState(0);
+
+
+
+
     
     const filterSeries = () => {
         let filteredSeries = series;
@@ -26,6 +33,7 @@ export default function MyRecomendations() {
         }
         setSeriesFiltered(filteredSeries);
     }
+    
 
     useEffect(() => {
         filterSeries();
@@ -63,7 +71,7 @@ export default function MyRecomendations() {
 
     return (
         <div className='movie-recommendation'>
-            <p>Bienvenido a nuestra plataforma.</p>
+            <p>Bienvenido!</p>
             <Filter 
                 category={category} setCategory={setCategory}
                 service={service} setService={setService}

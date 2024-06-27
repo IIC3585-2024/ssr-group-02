@@ -28,10 +28,10 @@ export default function CreateUser() {
   };
 
   return (
-    <main className={styles.createUser}>
+    <main className={styles.main}>
       <h1 className={styles.title}>Crear una Cuenta</h1>
       <p>¡Bienvenido! Por favor, completa el siguiente formulario para crear una cuenta.</p>
-      <form id="form-create-user" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form_create_user}>
         <label htmlFor="email">Correo Electrónico</label>
         <input
           type="email"

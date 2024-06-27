@@ -13,7 +13,6 @@ export default function Logout() {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log(data.message);
         router.push('/');
       } else {
         console.error(data.error);

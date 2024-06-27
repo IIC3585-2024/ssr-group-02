@@ -20,7 +20,6 @@ export default function Login() {
     });
     const data = await response.json();
     if (response.ok) {
-      alert(data.message);
       router.push('/');
     } else {
       alert(data.error);
@@ -28,10 +27,11 @@ export default function Login() {
   };
 
   return (
-    <main className={styles.createUser}>
-      <h1 className={styles.title}>Iniciar Sesión</h1>
+    <main className={styles.main}>
+      <h1 className={styles.title}>Watch Series</h1>
+      <h3 className={styles.title}>Las mejores recomendaciones de tus series favoritas</h3>
       <p>¡Bienvenido! Por favor, completa el siguiente formulario para iniciar sesión.</p>
-      <form id="form-login-user" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form_login_user}>
         <label htmlFor="email">Correo Electrónico</label>
         <input
           type="email"
@@ -52,9 +52,11 @@ export default function Login() {
         />
         <button type="submit">Iniciar Sesión</button>
       </form>
-      <a href="/signup">
+
+      <a href="/signup" className={styles.form_login_user}>
         <button>Crear Cuenta</button>
       </a>
+
     </main>
   );
 }

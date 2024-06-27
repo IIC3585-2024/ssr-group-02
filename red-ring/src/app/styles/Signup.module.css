@@ -56,7 +56,7 @@
     grid-template-columns: 1fr;
     gap: 1rem;
 }
-#form-create-user {
+.form_create_user {
     display: flex;
     flex-direction: column;
     align-items: center;
